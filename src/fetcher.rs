@@ -5,7 +5,7 @@ use ethers_providers::{Http, Provider};
 pub async fn load_creators_from_blocks(
     rpc_url: &str,
     block_provider: Receiver<u64>,
-    sender: Sender<String>,
+    sender: Sender<(String, u64)>,
 ) -> () {
     let provider = Provider::<Http>::try_from(rpc_url).expect("Could not create provider");
     for block_num in block_provider.iter() {
@@ -21,7 +21,7 @@ pub async fn load_creators_from_blocks(
                 .map(|transaction| transaction.recover_from())
                 .filter_map(|result| result.ok())
                 .map(|result| format!("{:x}", result))
-                .for_each(|c| sender.send(c).expect("Channel failed"));
+                .for_each(|c| sender.send((c, block_num)).expect("Channel failed"));
         } else {
             println!("Error fetching block: {:?}", block_result);
         }
