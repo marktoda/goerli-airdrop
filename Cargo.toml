@@ -1,0 +1,20 @@
+[package]
+name = "goerli-airdrop"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.65"
+crossbeam = "0.8.2"
+crossbeam-channel = "0.5.6"
+ethers = "0.17.0"
+ethers-providers = "0.17.0"
+futures = "0.3.24"
+hex = "0.4.3"
+reqwest = "0.11.12"
+serde_json = "1.0.86"
+structopt = "0.3.26"
+threadpool = "1.8.1"
+tokio = { version = "1.21.2", features = ["full"] }
