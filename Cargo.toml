@@ -18,3 +18,11 @@ serde_json = "1.0.86"
 structopt = "0.3.26"
 threadpool = "1.8.1"
 tokio = { version = "1.21.2", features = ["full"] }
+
+[[bin]]
+name = "fetch-creators"
+path = "src/fetch_creators.rs"
+
+[[bin]]
+name = "filter-creators"
+path = "src/filter_creators.rs"

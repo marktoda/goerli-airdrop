@@ -1,14 +1,14 @@
 use structopt::StructOpt;
-mod opt;
-use opt::Opt;
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::BufReader;
 use std::path::Path;
 use std::io::Read;
 
+mod opt;
+use crate::opt::Opt;
 mod fetcher;
-use fetcher::load_creators_from_blocks;
+use crate::fetcher::load_creators_from_blocks;
 
 // num workers
 const NUM_WORKERS: usize = 10;
@@ -67,7 +67,7 @@ fn get_start_block(opt: &Opt) -> u64 {
     }
 }
 
-fn load_creator_map() -> HashMap<String, usize> {
+pub fn load_creator_map() -> HashMap<String, usize> {
     let path = Path::new(FILE_NAME);
     if path.exists() {
         // Open the file in read-only mode with buffer.
