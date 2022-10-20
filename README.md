@@ -11,14 +11,14 @@ Ran the data through a filter step which ensured they had a nonzero tx nonce. Th
 The process above found 292,979 EOAs which had deployed contracts on mainnet before block 15537393. Most of these only deployed a single contract.
 
 ## Distribution
-This is more addresses than I expected. My proposed distribution is as follows:
-- 1 deployment (X addresses): 10 goETH
-- 2-9 deployments (X addresses): 100 goETH
-- 10+ deployments (X addresses): 1000 goETH
+My proposed distribution is as follows:
+- 1 deployment (192359 addresses): 10 goETH
+- 2-9 deployments (89014 addresses): 100 goETH
+- 10+ deployments (11606 addresses): 1000 goETH
 
-This would result in a total of X goETH distributed.   
+This would requier a total of 22,430,990 goETH distributed.   
 
-The distribution is done through a forge script which transfers goETH through a multi-send contract
+The distribution is done through a forge script which transfers goETH through a multi-send contract in 1000 transfer chunks
 
 ### How to run distributor
 

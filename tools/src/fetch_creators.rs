@@ -1,6 +1,4 @@
-use std::collections::HashMap;
 use std::fs::File;
-use std::io::BufReader;
 use std::io::Read;
 use std::path::Path;
 use structopt::StructOpt;
@@ -9,6 +7,8 @@ mod opt;
 use crate::opt::Opt;
 mod fetcher;
 use crate::fetcher::load_creators_from_blocks;
+mod util;
+use crate::util::load_creator_map;
 
 // num workers
 const NUM_WORKERS: usize = 10;
@@ -36,7 +36,7 @@ async fn main() {
         });
     }
 
-    let mut creator_map = load_creator_map();
+    let mut creator_map = load_creator_map(FILE_NAME);
     println!("Loaded {} creators", creator_map.keys().len());
     let mut last_block_num = get_start_block(&opt);
     loop {
@@ -65,19 +65,5 @@ fn get_start_block(opt: &Opt) -> u64 {
         data.parse::<u64>().unwrap()
     } else {
         opt.from_block
-    }
-}
-
-pub fn load_creator_map() -> HashMap<String, usize> {
-    let path = Path::new(FILE_NAME);
-    if path.exists() {
-        // Open the file in read-only mode with buffer.
-        let file = File::open(path).unwrap();
-        let reader = BufReader::new(file);
-
-        // Read the JSON contents of the file as an instance of `User`.
-        serde_json::from_reader(reader).unwrap()
-    } else {
-        HashMap::new()
     }
 }
