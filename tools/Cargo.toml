@@ -20,6 +20,7 @@ threadpool = "1.8.1"
 distributor-bindings = { path = "../bindings" }
 tokio = { version = "1.21.2", features = ["full"] }
 ethers-contract = "0.17.0"
+ethers-middleware = "0.17.0"
 
 [[bin]]
 name = "fetch-creators"

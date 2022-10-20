@@ -1409,6 +1409,7 @@ dependencies = [
  "distributor-bindings",
  "ethers 0.17.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ethers-contract 0.17.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "ethers-middleware 0.17.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ethers-providers 0.17.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "futures",
  "hex",
