@@ -12,7 +12,7 @@ use crate::fetcher::load_creators_from_blocks;
 
 // num workers
 const NUM_WORKERS: usize = 10;
-const FILE_NAME: &str = "creators.json";
+const FILE_NAME: &str = "../data/creators.json";
 const LAST_BLOCK_FILE_NAME: &str = "block_num.txt";
 
 #[tokio::main]

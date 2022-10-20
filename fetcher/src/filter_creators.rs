@@ -12,7 +12,7 @@ mod opt;
 use crate::opt::Opt;
 
 // num workers
-const FILE_NAME: &str = "creators.json";
+const FILE_NAME: &str = "../data/creators.json";
 
 // some false positives for some reason.. filter by tx count
 #[tokio::main]
