@@ -16,13 +16,13 @@ My proposed distribution is as follows:
 - 2-9 deployments (89014 addresses): 100 goETH
 - 10+ deployments (11606 addresses): 1000 goETH
 
-This would requier a total of 22,430,990 goETH distributed.   
+This would require a total of 22,430,990 goETH distributed.   
 
-The distribution is done through a forge script which transfers goETH through a multi-send contract in 1000 transfer chunks
+The distribution is done through a rust script which transfers goETH through a multi-send contract in 100 transfer chunks
 
 ### How to run distributor
 
 ```bash
-cd distributor
-PRIVATE_KEY=key forge script ./script/Distributor.s.sol
+cd tools
+cargo run --bin distributor -- --rpc-url <goerli rpc url> --private-key <goerli private key with funds>
 ```

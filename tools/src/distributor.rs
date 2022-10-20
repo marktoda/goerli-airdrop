@@ -55,7 +55,7 @@ async fn main() {
     let wallet = Wallet::from_str(&opt.private_key).expect("Invalid private key").with_chain_id(5u64);
     let provider = Provider::<Http>::try_from(opt.rpc_url).expect("Could not create provider");
     // 1000 eth
-    let high_distribution: U256 = U256::from_dec_str("1").unwrap();
+    let high_distribution: U256 = U256::from_dec_str("1000000000000000000000").unwrap();
     // 100 eth
     let med_distribution: U256 = U256::from_dec_str("100000000000000000000").unwrap();
     // 10 eth
