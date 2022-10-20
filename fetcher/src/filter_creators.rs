@@ -1,12 +1,12 @@
-use structopt::StructOpt;
 use ethers::prelude::*;
+use ethers::types::{H160, U256};
 use ethers_providers::{Http, Provider};
-use ethers::types::{U256, H160};
 use std::collections::HashMap;
-use std::str::FromStr;
 use std::fs::File;
 use std::io::BufReader;
 use std::path::Path;
+use std::str::FromStr;
+use structopt::StructOpt;
 
 mod opt;
 use crate::opt::Opt;
@@ -25,7 +25,13 @@ async fn main() {
     let mut filtered_map: HashMap<String, usize> = HashMap::new();
     for (creator, count) in creator_map {
         // fetch the tx count of the creator address
-        let tx_count = provider.get_transaction_count(H160::from_str(&creator).expect("Could not parse address"), None).await.expect("Could not fetch tx count");
+        let tx_count = provider
+            .get_transaction_count(
+                H160::from_str(&creator).expect("Could not parse address"),
+                None,
+            )
+            .await
+            .expect("Could not fetch tx count");
         println!("{}: {}", creator, tx_count);
         if tx_count > u256_zero {
             println!("Found one lt0");

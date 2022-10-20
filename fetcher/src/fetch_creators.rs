@@ -1,9 +1,9 @@
-use structopt::StructOpt;
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::BufReader;
-use std::path::Path;
 use std::io::Read;
+use std::path::Path;
+use structopt::StructOpt;
 
 mod opt;
 use crate::opt::Opt;
@@ -45,7 +45,8 @@ async fn main() {
         creator_map.insert(creator, count + 1);
 
         if block_num > last_block_num + 10000 {
-            std::fs::write("block_num.txt", block_num.to_string()).expect("Could not write to file");
+            std::fs::write("block_num.txt", block_num.to_string())
+                .expect("Could not write to file");
 
             let file = File::create(FILE_NAME).expect("Could not create file");
             serde_json::to_writer_pretty(file, &creator_map).expect("Could not write to file");

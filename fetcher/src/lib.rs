@@ -1,2 +1,2 @@
-mod opt;
 mod fetcher;
+mod opt;
