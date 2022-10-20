@@ -1,0 +1,6 @@
+[profile.default]
+src = 'src'
+out = 'out'
+libs = ['lib']
+# thx mudit
+eth_rpc_url = 'https://rpc.goerli.mudit.blog'
