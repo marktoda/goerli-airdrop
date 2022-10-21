@@ -23,7 +23,11 @@ async fn main() {
     let one_ether = U256::from_dec_str("1000000000000000000").unwrap();
 
     let mut filtered_map: HashMap<String, usize> = HashMap::new();
-    for (creator, count) in creator_map {
+    let mut i = 0;
+    for (creator, count) in creator_map.clone() {
+        if i % 100 == 0 {
+            println!("{} / {}", i, &creator_map.len());
+        }
         // fetch the creator balance
         let balance = provider
             .get_balance(
@@ -32,11 +36,11 @@ async fn main() {
             )
             .await
             .expect("Could not fetch balance");
-        println!("{}: {}", creator, balance);
+
         if balance < one_ether {
-            println!("Found one with balance less than one eth");
             filtered_map.insert(creator, count);
         }
+        i += 1;
     }
 
     let file = File::create(FILE_NAME).expect("Could not create file");
