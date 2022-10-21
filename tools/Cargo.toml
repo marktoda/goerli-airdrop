@@ -33,3 +33,7 @@ path = "src/filter_creators.rs"
 [[bin]]
 name = "distributor"
 path = "src/distributor.rs"
+
+[[bin]]
+name = "filter-by-balance"
+path = "src/filter_creators_by_balance.rs"
