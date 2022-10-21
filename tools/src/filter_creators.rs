@@ -34,7 +34,7 @@ async fn main() {
             .expect("Could not fetch tx count");
         println!("{}: {}", creator, tx_count);
         if tx_count > u256_zero {
-            println!("Found one lt0");
+            println!("Found one gt0");
             filtered_map.insert(creator, count);
         }
     }
