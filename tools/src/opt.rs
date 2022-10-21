@@ -10,12 +10,12 @@ pub struct Opt {
     pub rpc_url: String,
 
     /// The block to start searching from
-    #[structopt(short, long, default_value = "0")]
+    #[structopt(short, long, default_value = "14600000")]
     pub from_block: u64,
 
     /// The block to search until
     /// default date is the first merged block
-    #[structopt(short, long, default_value = "7382818")]
+    #[structopt(short, long, default_value = "15537393")]
     pub to_block: u64,
 }
 

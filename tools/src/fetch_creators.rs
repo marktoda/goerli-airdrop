@@ -44,7 +44,7 @@ async fn main() {
         let count = creator_map.get(&creator).unwrap_or(&0);
         creator_map.insert(creator, count + 1);
 
-        if block_num > last_block_num + 10000 {
+        if block_num > last_block_num + 10000 || block_num > opt.to_block - 100 {
             std::fs::write("block_num.txt", block_num.to_string())
                 .expect("Could not write to file");
 
